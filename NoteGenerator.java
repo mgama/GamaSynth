@@ -10,11 +10,11 @@
 // 7	2093	2217	2349	2489	2637	2794	2960	3136	3322	3520	3729	3951
 // 8	4186	4435	4699	4978	5274	5588	5920	6272	6645	7040	7459	7902
 
-import net.beadsproject.beads.core.AudioContext;
-import net.beadsproject.beads.data.Buffer;
-import net.beadsproject.beads.ugens.Gain;
-import net.beadsproject.beads.ugens.Glide;
-import net.beadsproject.beads.ugens.WavePlayer;
+import beads.src.beads_main.net.beadsproject.beads.core.AudioContext;
+// import net.beadsproject.beads.data.Buffer;
+// import net.beadsproject.beads.ugens.Gain;
+// import net.beadsproject.beads.ugens.Glide;
+// import net.beadsproject.beads.ugens.WavePlayer;
 
 public class NoteGenerator {
 	
