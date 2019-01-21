@@ -1,6 +1,6 @@
 class GamaSynth {
 	public static void main(String[] args) {
 		NoteGenerator noteGenerator = new NoteGenerator();
-		noteGenerator.createNotesArray(1);
+		noteGenerator.playNote("C0");
 	}
 }

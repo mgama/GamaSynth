@@ -10,10 +10,16 @@
 // 7	2093	2217	2349	2489	2637	2794	2960	3136	3322	3520	3729	3951
 // 8	4186	4435	4699	4978	5274	5588	5920	6272	6645	7040	7459	7902
 
+import net.beadsproject.beads.core.AudioContext;
+import net.beadsproject.beads.data.Buffer;
+import net.beadsproject.beads.ugens.Gain;
+import net.beadsproject.beads.ugens.Glide;
+import net.beadsproject.beads.ugens.WavePlayer;
+
 public class NoteGenerator {
 	
-	public string currentNoteName;
-	public string currentNoteFrequency;
+	public String currentNoteName;
+	public String currentNoteFrequency;
 	public int[] cNotesArray;
 	public int[] cSNotesArray;
 	public int[] dNotesArray;
@@ -27,15 +33,60 @@ public class NoteGenerator {
 	public int[] aSNotesArray;
 	public int[] bNotesArray;
 
+	public NoteGenerator(){
+		cNotesArray = createNotesArray(1);
+		cSNotesArray = createNotesArray(2);
+		dNotesArray = createNotesArray(3);
+		dSNotesArray = createNotesArray(4);
+		eNotesArray = createNotesArray(5);
+		fNotesArray = createNotesArray(6);
+		fSNotesArray = createNotesArray(7);
+		gNotesArray = createNotesArray(8);
+		gSNotesArray = createNotesArray(9);
+		aNotesArray = createNotesArray(10);
+		aSNotesArray = createNotesArray(11);
+		bNotesArray = createNotesArray(12);
+	}
+
+	//C Music Notes
+	//https://en.wikipedia.org/wiki/C_(musical_note)
+
 	public int[] createNotesArray(int noteNumber){
 		int[] notesArray;
-		notesArray = new int[9];
+		notesArray = new int[11];
 		notesArray[0] = noteNumber;
 		for(int i = 1; i <= 10; i++){
 			noteNumber = noteNumber + 12;
 			notesArray[i] = noteNumber;
 			System.out.println("Adding new notePosition to array " + noteNumber);
+			System.out.println("On position " + i);
 		}
 		return notesArray;
+	}
+
+	//How to Generate Note Frequencies
+	//https://pages.mtu.edu/~suits/NoteFreqCalcs.html
+
+	public float generateNoteFrequency(String noteName) {
+		float referenceFrequency = 440;
+		float noteFrequency = referenceFrequency;
+
+		return noteFrequency;
+	}
+
+	public void playNote(String noteName) {
+		float noteFrequency = generateNoteFrequency(noteName);
+
+		// create an AudioContext
+  		AudioContext ac = new AudioContext();
+  
+		// create a sine generator
+		WavePlayer sine = new WavePlayer(ac, noteFrequency, Buffer.SINE);
+
+		// add the Gain as an input to the master output, ac.out
+  		ac.out.addInput(sineGain);
+  
+  		// begin audio processing
+  		ac.start();
 	}
 }
