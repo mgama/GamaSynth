@@ -17,6 +17,14 @@
 	</dependencies>
 	<build>
         <finalName>GamaSynth</finalName>
+        <resources>
+	    	<resource>
+	       		<directory>src/main/resources/beads/src/beads_main/net/beadsproject/beads</directory>
+	     	</resource>
+	     	<resource>
+	       		<directory>src/main/java/</directory>
+	     	</resource>
+	   	</resources>
             
         <plugins>
             <plugin>
@@ -24,7 +32,7 @@
                 <version>3.1</version>
                 <configuration>
                     <source>1.8</source>
-                    <target>1.8</target>
+          			<target>1.8</target>
                 </configuration>
             </plugin>
             
@@ -37,6 +45,22 @@
 			        <argLine>${surefireArgLine}</argLine>
 			    </configuration>
 			</plugin> 
+
+			<plugin>
+			  <groupId>org.codehaus.mojo</groupId>
+			  <artifactId>exec-maven-plugin</artifactId>
+			  <version>1.2.1</version>
+			  <executions>
+			    <execution>
+			      <goals>
+			        <goal>java</goal>
+			      </goals>
+			    </execution>
+			  </executions>
+			  <configuration>
+			    <mainClass>src.main.java.GamaSynth</mainClass>
+			  </configuration>
+			</plugin>
             
             <plugin>
                 <groupId>org.jacoco</groupId>
