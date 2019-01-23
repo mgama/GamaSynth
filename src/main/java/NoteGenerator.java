@@ -69,15 +69,70 @@ public class NoteGenerator {
 	//How to Generate Note Frequencies
 	//https://pages.mtu.edu/~suits/NoteFreqCalcs.html
 
-	public float generateNoteFrequency(String noteName) {
-		float referenceFrequency = 440;
-		float noteFrequency = referenceFrequency;
+	public double generateNoteFrequency(String noteName) {
+		double referenceFrequency = 440;
+		double noteFrequency = referenceFrequency;
+		int referenceFrequencyNumber = aNotesArray[4];
+		double twelthRootOfTwo = 1.059463094359;
 
+		String noteLetter = new Character(noteName.charAt(0)).toString();
+		System.out.println(noteLetter);
+		int noteNumber = Integer.parseInt(new Character(noteName.charAt(1)).toString());
+		System.out.println(noteNumber);
+		int numberFromNotesArray = 0;
+		//Find note number from arrays
+		switch(noteLetter) {
+			case "C":
+				numberFromNotesArray = cNotesArray[noteNumber];
+				break;
+			case "C#":
+				numberFromNotesArray = cSNotesArray[noteNumber];
+				break;
+			case "D":
+				numberFromNotesArray = dNotesArray[noteNumber];
+				break;
+			case "D#":
+				numberFromNotesArray = dSNotesArray[noteNumber];
+				break;
+			case "E":
+				numberFromNotesArray = eNotesArray[noteNumber];
+				break;
+			case "F":
+				numberFromNotesArray = fNotesArray[noteNumber];
+				break;
+			case "F#":
+				numberFromNotesArray = fSNotesArray[noteNumber];
+				break;
+			case "G":
+				numberFromNotesArray = gNotesArray[noteNumber];
+				break;
+			case "G#":
+				numberFromNotesArray = gSNotesArray[noteNumber];
+				break;
+			case "A":
+				numberFromNotesArray = aNotesArray[noteNumber];
+				break;
+			case "A#":
+				numberFromNotesArray = aSNotesArray[noteNumber];
+				break;
+			case "B":
+				numberFromNotesArray = bNotesArray[noteNumber];
+				break;
+			default:
+				numberFromNotesArray = aNotesArray[4];
+				break;
+		};
+		System.out.println("The number from the notesArray is " + numberFromNotesArray);
+
+		int semiTonesDifference = numberFromNotesArray - referenceFrequencyNumber;
+		System.out.println("The semiTonesDifference is " + semiTonesDifference);
+		noteFrequency = referenceFrequency * Math.pow(twelthRootOfTwo, semiTonesDifference);
+		System.out.println("The frequency to play is " + noteFrequency);
 		return noteFrequency;
 	}
 
 	public void playNote(String noteName) {
-		float noteFrequency = generateNoteFrequency(noteName);
+		double noteFrequency = generateNoteFrequency(noteName);
 
 		// // create an AudioContext
   // 		AudioContext ac = new AudioContext();
