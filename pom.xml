@@ -4,17 +4,26 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<name>GamaSynth</name>
-	<groupId>com.mgama</groupId>
+	<groupId>com.gamasynth</groupId>
 	<artifactId>GamaSynth</artifactId>
-	<version>2.3.2</version>
+	<version>0.0.1</version>
+	<packaging>jar</packaging>
+	<repositories>
+		<repository>
+			<id>jcenter</id>
+			<name>bintray</name>
+			<url>http://jcenter.bintray.com</url>
+			</repository>
+		</repositories>
 	<dependencies>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.10</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
 	<build>
         <finalName>GamaSynth</finalName>
         <resources>
@@ -39,11 +48,12 @@
             <plugin>
 			    <groupId>org.apache.maven.plugins</groupId>
 			    <artifactId>maven-surefire-plugin</artifactId>
-			    <version>2.15</version>
-			    <configuration>
-			        <!-- Sets the VM argument line used when unit tests are run. -->
-			        <argLine>${surefireArgLine}</argLine>
-			    </configuration>
+			    <version>3.0.0-M3</version>
+		        <configuration>
+		          <suiteXmlFiles>
+		            <suiteXmlFile>testng.xml</suiteXmlFile>
+		          </suiteXmlFiles>
+		        </configuration>
 			</plugin> 
 
 			<plugin>

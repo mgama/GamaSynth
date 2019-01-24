@@ -17,6 +17,7 @@
 // import net.beadsproject.beads.ugens.Gain;
 // import net.beadsproject.beads.ugens.Glide;
 // import net.beadsproject.beads.ugens.WavePlayer;
+package GamaSynth;
 
 public class NoteGenerator {
 	
