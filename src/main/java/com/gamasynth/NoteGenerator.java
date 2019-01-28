@@ -76,9 +76,39 @@ public class NoteGenerator {
 		int referenceFrequencyNumber = aNotesArray[4];
 		double twelthRootOfTwo = 1.059463094359;
 
-		String noteLetter = new Character(noteName.charAt(0)).toString();
+		//Logic to detect sharp notes and notes higher than 10 
+		//Examples: C#0 and C10
+		int lengthOfNoteName = noteName.length();
+		String noteLetter = "";
+		int noteNumber = 0;
+		switch(lengthOfNoteName){
+			case 2:
+				noteLetter = new Character(noteName.charAt(0)).toString();
+				noteNumber = Integer.parseInt(new Character(noteName.charAt(1)).toString());
+				break;
+			case 3:
+				if (noteName.charAt(1) == '#') {
+					noteLetter = new Character(noteName.charAt(0)).toString() + new Character(noteName.charAt(1)).toString();
+					noteNumber = Integer.parseInt(new Character(noteName.charAt(2)).toString());
+				}
+				else {
+					noteLetter = new Character(noteName.charAt(0)).toString();
+					noteNumber = Integer.parseInt(new Character(noteName.charAt(1)).toString() + new Character(noteName.charAt(2)).toString());
+				}
+				break;
+			case 4:
+				if (noteName.charAt(1) == '#') {
+					noteLetter = new Character(noteName.charAt(0)).toString() + new Character(noteName.charAt(1)).toString();
+					noteNumber = Integer.parseInt(new Character(noteName.charAt(2)).toString() + new Character(noteName.charAt(3)).toString());
+				}
+				else {
+					System.out.println("There is a problem with the noteName");
+				}
+				break;
+			default: 
+				break;	
+		}
 		System.out.println(noteLetter);
-		int noteNumber = Integer.parseInt(new Character(noteName.charAt(1)).toString());
 		System.out.println(noteNumber);
 		int numberFromNotesArray = 0;
 		//Find note number from arrays
