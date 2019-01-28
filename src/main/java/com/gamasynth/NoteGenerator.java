@@ -129,6 +129,8 @@ public class NoteGenerator {
 		System.out.println("The semiTonesDifference is " + semiTonesDifference);
 		noteFrequency = referenceFrequency * Math.pow(twelthRootOfTwo, semiTonesDifference);
 		System.out.println("The frequency to play is " + noteFrequency);
+		//Round to only 2 decimals
+		noteFrequency = Math.round(noteFrequency*100.0)/100.0;
 		return noteFrequency;
 	}
 

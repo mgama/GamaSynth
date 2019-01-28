@@ -1,0 +1,7 @@
+<suite name="UnitTests">
+ <test name="testngTest">
+ <classes>
+ <class name="GamaSynth.TestNoteFrequencies" />
+ </classes>
+ </test>
+</suite>
